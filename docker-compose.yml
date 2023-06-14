@@ -15,7 +15,7 @@ services:
     links:
       - banco:banco
     volumes:
-      - $PWD:/var/www/html
+      - $PWD/app:/var/www/html
     networks:
       mynet:
        ipv4_address: 172.18.0.2
@@ -43,5 +43,3 @@ services:
     networks:
       mynet:
         ipv4_address: 172.18.0.4
-
-# jdbc:mysql://localhost:3306/lamp?allowPublicKeyRetrieval=true&useSSL=false
