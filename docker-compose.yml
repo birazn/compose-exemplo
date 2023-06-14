@@ -9,7 +9,7 @@ networks:
 
 services:
   web:
-    build: .
+    build: ./web/
     ports:
       - "80:80"
     links:
