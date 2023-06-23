@@ -15,7 +15,7 @@ services:
     links:
       - banco:banco
     volumes:
-      - $PWD/app:/var/www/html
+      - ./app:/var/www/html
     networks:
       mynet:
        ipv4_address: 172.18.0.2
