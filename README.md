@@ -13,6 +13,6 @@ docker compose up -d
 
 Acesse http://localhost para acessar a pagina inicial.
 
-O Banco de dados ainda não tem tabelas, para importar a tabela exemplo siga o passo a passo [aqui](https://scribehow.com/shared/Acessando_MySQL_via_Adminer__fDSOlD6LRCWeagws0XVUeA)
+O Banco de dados já importa a tabela
 
 Depois disso basta efetuar os testes do CRUD
