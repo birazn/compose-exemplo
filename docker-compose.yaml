@@ -1,33 +1,23 @@
+# Configurando Rede dos Serviços
 networks:
   mynet:
     driver: bridge
 
+# Configurando os Serviços
 services:
-  web:
-    build: ./web/
+  web: # Serviço Web
+    build: .
     ports:
-      - "80-81:80"
-    deploy:
-      mode: replicate
-      replicas: 2
-      resources:
-        limits:
-          cpus: '1.00'
-          memory: 100M
+      - "80:80"
     links:
       - banco:banco
     networks:
       mynet:
 
-  banco:
-    build: ./sql/
+  banco: # Banco de dados
+    build: ./sql
     ports:
       - "3306:3306"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.50'
-          memory: 500M
     environment:
       MYSQL_ROOT_PASSWORD: senha_da_nasa
       MYSQL_DATABASE: lamp
@@ -36,16 +26,11 @@ services:
     networks:
       mynet:
 
-  adminer:
+  adminer: # Gerenciador de banco
     image: adminer
     restart: always
     ports:
       - "8080:8080"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.50'
-          memory: 150M
     links:
       - banco:banco
     networks:
